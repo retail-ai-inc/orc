@@ -590,17 +590,12 @@ namespace orc {
     if (hasNulls && !notNull[rowId]) {
       writeString(buffer, "null");
     } else {
-      writeChar(buffer, '{');
       for(unsigned int i=0; i < fieldPrinter.size(); ++i) {
         if (i != 0) {
-          writeString(buffer, ", ");
+          writeString(buffer, ",");
         }
-        writeChar(buffer, '"');
-        writeString(buffer, fieldNames[i].c_str());
-        writeString(buffer, "\": ");
         fieldPrinter[i]->printRow(rowId);
       }
-      writeChar(buffer, '}');
     }
   }
 
