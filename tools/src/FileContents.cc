@@ -54,6 +54,7 @@ int main(int argc, char* argv[]) {
     std::cout << "Usage: orc-contents <filename> [--columns=1,2,...]\n"
               << "Print contents of <filename>.\n"
               << "If columns are specified, only these top-level (logical) columns are printed.\n" ;
+              << "output CSV format without header. \n" ;
     return 1;
   }
   try {
