@@ -486,14 +486,14 @@ namespace orc {
     if (hasNulls && !notNull[rowId]) {
       writeString(buffer, "null");
     } else {
-      writeChar(buffer, '[');
+      writeChar(buffer, '"');
       for(int64_t i=offsets[rowId]; i < offsets[rowId+1]; ++i) {
         if (i != offsets[rowId]) {
-          writeString(buffer, ", ");
+          writeString(buffer, ",");
         }
         elementPrinter->printRow(static_cast<uint64_t>(i));
       }
-      writeChar(buffer, ']');
+      writeChar(buffer, '"');
     }
   }
 
